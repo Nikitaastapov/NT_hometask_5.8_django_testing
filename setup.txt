@@ -1,0 +1,45 @@
+1) pip install pytest-django - установка библиотеки
+2)pip install -r requirements.txt - установка бибилиотек из файла requirements.txt
+3)django-admin startproject demo . - создание django-проекта demo (в конце точка, чтобы не создавать папку с окружением)
+4)в папке проекта заходим в файл settings.py раздел INSTALLED_APPS и прописываем созданные приложения: rest_framework.authtoken,django_filters, rest_framework, drf_test
+5)python3 manage.py startapp drf_test - создание приложения drf_test  в проекте
+6) в settings.py в разделе database меняем SQL-lite на postgress:
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'netology_django_testing',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+    }
+7) создание БД
+createdb -U postgres netology_django_testing
+8) установка драйвера для БД 
+pip install psycopg2-binary
+9) создаем в папке приложения drf_test папку tests
+создаем папку проекта demo
+создаем файл test_'название'.py
+для запуска пишем pytest в терминале
+10) в корневом каталоге проекта создаем файл pytest.ini для настроек Джанго
+
+
+
+8) python3 manage.py migrate - создание структуры базы данных
+9) python3 manage.py runserver - запуск сервера
+10) python3 manage.py makemigrations - отправка изменений + python manage.py migrate
+
+11) pip install model_bakery
+12) pip install pytest-cov
+
+
+1)python3 -m venv demo - создание окружения проекта issue
+2)source issue/bin/activate - активация окружения
+10) python3 manage.py shell - спец интерпретатор django
+запись в БД
+from main.models import Products -импортируем класс Product из файла models
+prod1 = Products(name = "Apple Iphone 14", description = "mobile phone", price = 120000) - создали экземпляр класса и заполнили БД
+prod1.save() - сохранили запись в БД
+или
+Products.objects.create(name = "Apple Iphone 13", description = "mobile phone", price = 100000)
+11)python3 manage.py createsuperuser - создание пользователя для Админ
