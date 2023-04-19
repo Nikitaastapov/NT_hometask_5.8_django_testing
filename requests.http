@@ -4,12 +4,5 @@ GET http://localhost:8000/messages/
 ###
 
 #создание сообщения
-POST http://localhost:8000/messages/
+GET http://localhost:8000/courses/
 Content-Type: application/json
-
-
-{
-    "user": 2,
-    "text": "test 1"
-
-}
