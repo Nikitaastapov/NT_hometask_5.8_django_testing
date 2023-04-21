@@ -30,9 +30,9 @@ def test_get_first_course(client, courses_factory):
     n = 10
     courses = courses_factory(_quantity=n)
     # response = client.get(url)
-    response = client.get(url, data = {id: 1})
+    response = client.get(f'{url}+{courses[0].id}/')
     data = response.json()
-    assert courses[0].name == data[0]['name']
+    assert courses[0].name == data.get('name')
     assert response.status_code == 200
  
 @pytest.mark.django_db
